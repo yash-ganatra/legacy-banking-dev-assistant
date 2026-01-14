@@ -1412,35 +1412,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 👥 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-
----
-
-## 🙏 Acknowledgments
-
-- **BAAI** for the BGE-M3 embedding model
-- **ChromaDB** team for the vector database
-- **FastAPI** and **React** communities
-- **Sentence Transformers** library
-- **PostgreSQL** project
-
----
-
-## ⭐ Show Your Support
-
-If you found this project helpful, please consider:
-- ⭐ Starring the repository
-- 🐛 Reporting bugs and issues
-- 💡 Suggesting new features
-- 🤝 Contributing code improvements
-
----
-
 <div align="center">
 
 **Built with ❤️ for Enterprise Knowledge Management**
