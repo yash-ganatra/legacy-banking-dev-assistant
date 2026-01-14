@@ -1,4 +1,4 @@
-#Multi-Domain Enterprise RAG System with Advanced Authentication
+#  Multi-Domain Enterprise RAG System with Advanced Authentication
 
 <div align="center">
 
