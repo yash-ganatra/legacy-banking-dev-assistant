@@ -1,4 +1,4 @@
-# 🚀 Multi-Domain Enterprise RAG System with Advanced Authentication
+# Multi-Domain Enterprise RAG System with Advanced Authentication
 
 <div align="center">
 
@@ -46,7 +46,109 @@ This project implements a sophisticated **Retrieval-Augmented Generation (RAG)**
 
 ---
 
-## 🌟 Key Features
+## �️ System Architecture
+
+### High-Level Architecture Overview
+
+The system follows a modern microservices-inspired architecture with clear separation of concerns across four distinct layers:
+
+```mermaid
+graph TB
+    subgraph "Presentation Layer"
+        UI[React UI<br/>Modern Chat Interface<br/>TailwindCSS Styling]
+        CTX[Context Selector<br/>Multi-Domain Router<br/>Business/Code/Template]
+        AUTH[Auth Components<br/>Login & Signup Forms<br/>JWT Token Management]
+        CHAT[Chat History UI<br/>Conversation List<br/>Message Display]
+    end
+    
+    subgraph "Application Layer - FastAPI Backend"
+        API[FastAPI Server<br/>RESTful API<br/>Async Processing]
+        ROUTER[Query Router<br/>Context-Based Routing<br/>Load Balancing]
+        CHATAPI[Chat History API<br/>CRUD Operations<br/>Conversation Management]
+        AUTHAPI[Auth API<br/>JWT Generation & Validation<br/>Password Verification]
+        REVIEW[Code Review API<br/>Syntax Analysis<br/>Security Checks]
+    end
+    
+    subgraph "Data Persistence Layer"
+        VDB[(Vector Databases<br/>ChromaDB Collections<br/>Semantic Search)]
+        PGDB[(PostgreSQL<br/>Users & Auth<br/>Conversations & Messages)]
+    end
+    
+    subgraph "AI Processing Layer"
+        EMB[Embedding Model<br/>BGE-M3<br/>1024-dim Vectors]
+        LLM[Large Language Model<br/>Groq API<br/>Response Generation]
+        RERANK[Cross-Encoder<br/>Re-Ranking<br/>Relevance Scoring]
+        SNIPPET[Smart Snippet<br/>Extraction<br/>Context Optimization]
+    end
+    
+    UI --> AUTH
+    UI --> CHAT
+    AUTH --> AUTHAPI
+    CHAT --> CHATAPI
+    CTX --> ROUTER
+    UI --> REVIEW
+    
+    ROUTER --> EMB
+    EMB --> VDB
+    VDB --> RERANK
+    RERANK --> SNIPPET
+    SNIPPET --> LLM
+    LLM --> API
+    
+    API --> ROUTER
+    CHATAPI --> PGDB
+    AUTHAPI --> PGDB
+    REVIEW --> LLM
+    
+    style UI fill:#e1f5ff,stroke:#0277bd,stroke-width:2px,color:#000
+    style CTX fill:#e1f5ff,stroke:#0277bd,stroke-width:2px,color:#000
+    style AUTH fill:#e1f5ff,stroke:#0277bd,stroke-width:2px,color:#000
+    style CHAT fill:#e1f5ff,stroke:#0277bd,stroke-width:2px,color:#000
+    
+    style API fill:#fff4e6,stroke:#ef6c00,stroke-width:2px,color:#000
+    style ROUTER fill:#fff4e6,stroke:#ef6c00,stroke-width:2px,color:#000
+    style CHATAPI fill:#fff4e6,stroke:#ef6c00,stroke-width:2px,color:#000
+    style AUTHAPI fill:#fff4e6,stroke:#ef6c00,stroke-width:2px,color:#000
+    style REVIEW fill:#fff4e6,stroke:#ef6c00,stroke-width:2px,color:#000
+    
+    style VDB fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
+    style PGDB fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
+    
+    style EMB fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000
+    style LLM fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000
+    style RERANK fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000
+    style SNIPPET fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000
+```
+
+### Architecture Components
+
+**Presentation Layer (React + Vite)**
+- Modern, responsive UI with real-time updates
+- Context-aware routing for different knowledge domains
+- Secure authentication with JWT token management
+- Persistent chat history with conversation threading
+
+**Application Layer (FastAPI)**
+- High-performance async REST API
+- Intelligent query routing based on context type
+- Comprehensive authentication and authorization
+- AI-powered code review capabilities
+- Full CRUD operations for chat management
+
+**Data Persistence Layer**
+- ChromaDB for vector storage and semantic search
+- PostgreSQL for relational data (users, conversations, messages)
+- Optimized indexing and connection pooling
+
+**AI Processing Layer**
+- State-of-the-art embedding generation (BGE-M3)
+- Cross-encoder re-ranking for precision
+- Smart snippet extraction for token efficiency
+- LLM integration for response generation
+
+---
+
+## �🌟 Key Features
 
 ### 🔐 Authentication & Security
 
@@ -57,9 +159,9 @@ graph LR
     C --> D[Role-Based Access]
     D --> E[Secure API Access]
     
-    style B fill:#90ee90
-    style C fill:#87ceeb
-    style D fill:#ffd700
+    style B fill:#90ee90,color:#000
+    style C fill:#87ceeb,color:#000
+    style D fill:#ffd700,color:#000
 ```
 
 - **JWT Authentication** with HS256 algorithm
@@ -100,10 +202,10 @@ graph TB
     
     L --> A[Final Answer]
     
-    style E fill:#e1f5ff
-    style R fill:#fff9c4
-    style S fill:#c8e6c9
-    style L fill:#f3e5f5
+    style E fill:#e1f5ff,color:#000
+    style R fill:#fff9c4,color:#000
+    style S fill:#c8e6c9,color:#000
+    style L fill:#f3e5f5,color:#000
 ```
 
 - **Semantic search** using BGE-M3 embeddings (1024 dimensions)
@@ -121,113 +223,80 @@ graph TB
 
 ---
 
-## 🏗️ System Architecture
-
-### High-Level Overview
-
-```mermaid
-graph TB
-    subgraph "Frontend Layer"
-        UI[React UI<br/>Modern Chat Interface]
-        CTX[Context Selector<br/>Multi-Domain Switching]
-        AUTH[Auth Components<br/>Login/Signup/Profile]
-    end
-    
-    subgraph "Backend Layer"
-        API[FastAPI Server<br/>RESTful API]
-        ROUTER[Query Router<br/>Context-Based Routing]
-        CHATAPI[Chat History API<br/>CRUD Operations]
-        AUTHAPI[Auth API<br/>JWT Management]
-    end
-    
-    subgraph "Data Layer"
-        VDB[(Vector Databases<br/>ChromaDB Collections)]
-        PGDB[(PostgreSQL<br/>Users & Conversations)]
-    end
-    
-    subgraph "AI Layer"
-        EMB[Embedding Model<br/>BGE-M3]
-        LLM[Large Language Model<br/>LLM API]
-        RERANK[Cross-Encoder<br/>Re-Ranking]
-    end
-    
-    UI --> AUTH
-    AUTH --> AUTHAPI
-    UI --> CHATAPI
-    CTX --> ROUTER
-    ROUTER --> VDB
-    ROUTER --> EMB
-    EMB --> RERANK
-    RERANK --> LLM
-    LLM --> API
-    CHATAPI --> PGDB
-    AUTHAPI --> PGDB
-    
-    style UI fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
-    style API fill:#fff4e6,stroke:#ef6c00,stroke-width:2px
-    style LLM fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
-    style VDB fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style PGDB fill:#ffe0b2,stroke:#e65100,stroke-width:2px
-```
+## 🔄 Detailed Process Flows
 
 ### Authentication Flow
 
+**Complete authentication lifecycle from signup to secure API access:**
+
 ```mermaid
 sequenceDiagram
-    participant User
-    participant Frontend
-    participant AuthAPI
-    participant Database
-    participant JWT
+    participant U as User
+    participant F as Frontend<br/>(React)
+    participant A as Auth API<br/>(FastAPI)
+    participant D as Database<br/>(PostgreSQL)
+    participant J as JWT Service
     
-    User->>Frontend: Login (username, password)
-    Frontend->>AuthAPI: POST /auth/login
-    AuthAPI->>Database: Query user (case-insensitive)
-    Database-->>AuthAPI: User record
-    AuthAPI->>AuthAPI: Verify password (bcrypt)
-    AuthAPI->>JWT: Generate token (HS256)
-    JWT-->>AuthAPI: Access token
-    AuthAPI-->>Frontend: {token, user_id, role}
-    Frontend->>Frontend: Store in localStorage
-    Frontend-->>User: Redirect to dashboard
+    Note over U,J: 1. User Login Process
+    U->>F: Enter credentials
+    F->>A: POST /auth/login<br/>{username, password}
+    A->>D: Query user (case-insensitive)
+    D-->>A: User record + hashed_password
+    A->>A: Verify password with bcrypt
+    A->>J: Generate JWT token (HS256)
+    J-->>A: access_token (expires 30min)
+    A-->>F: {token, user_id, username, role}
+    F->>F: Store token in localStorage
+    F-->>U: Redirect to dashboard
     
-    Note over User,JWT: Authenticated Requests
-    User->>Frontend: Load conversations
-    Frontend->>AuthAPI: GET /conversations<br/>Authorization: Bearer token
-    AuthAPI->>JWT: Validate token
-    JWT-->>AuthAPI: Extract user_id
-    AuthAPI->>Database: Query WHERE user_id=X
-    Database-->>AuthAPI: User's data only
-    AuthAPI-->>Frontend: Filtered results
-    Frontend-->>User: Display conversations
+    Note over U,J: 2. Authenticated API Request
+    U->>F: Load conversations
+    F->>A: GET /conversations<br/>Authorization: Bearer <token>
+    A->>J: Validate token signature
+    J->>J: Decode payload & verify expiry
+    J-->>A: Valid - Extract user_id
+    A->>D: SELECT * FROM conversations<br/>WHERE user_id = decoded_id
+    D-->>A: User's conversations only
+    A-->>F: JSON response
+    F-->>U: Display conversations
 ```
 
 ### Query Processing Pipeline
 
+**End-to-end query processing with intelligent context retrieval:**
+
 ```mermaid
 sequenceDiagram
-    participant User
-    participant Frontend
-    participant Router
-    participant VectorDB
-    participant Embedder
-    participant Reranker
-    participant LLM
+    participant U as User
+    participant F as Frontend
+    participant R as Query Router<br/>(FastAPI)
+    participant E as Embedder<br/>(BGE-M3)
+    participant V as VectorDB<br/>(ChromaDB)
+    participant Re as Re-Ranker<br/>(Cross-Encoder)
+    participant S as Snippet<br/>Extractor
+    participant L as LLM<br/>(Groq API)
     
-    User->>Frontend: Enter query + select context
-    Frontend->>Router: POST /inference/{context}
-    Router->>Embedder: Embed query text
-    Embedder-->>Router: Query vector
-    Router->>VectorDB: Semantic search
-    VectorDB-->>Router: Top 20 candidates
-    Router->>Reranker: Re-rank by relevance
-    Reranker-->>Router: Top 5 results
-    Router->>Router: Extract smart snippets
-    Router->>LLM: Generate answer with context
-    LLM-->>Router: Generated response
-    Router->>Frontend: Return answer + sources
-    Frontend-->>User: Display formatted response
-```
+    Note over U,L: 1. Query Submission
+    U->>F: Enter query + select context type
+    F->>R: POST /inference/{context}<br/>{query, top_k=5, rerank=true}
+    
+    Note over U,L: 2. Embedding & Retrieval
+    R->>E: Generate query embedding
+    E-->>R: 1024-dim vector
+    R->>V: Semantic similarity search
+    V-->>R: Top 20 candidates with metadata
+    
+    Note over U,L: 3. Re-Ranking & Optimization
+    R->>Re: Re-rank query-doc pairs
+    Re-->>R: Top 5 by relevance score
+    R->>S: Extract smart snippets
+    S-->>R: Optimized context (97% reduction)
+    
+    Note over U,L: 4. LLM Generation
+    R->>L: Generate answer with context
+    L-->>R: Natural language response
+    R->>F: {llm_response, results, sources}
+    F-->>U: Display formatted answer
 
 ---
 
@@ -324,8 +393,8 @@ graph TB
     D --> E[L2 Normalization]
     E --> F[Dense Vector<br/>1024 dimensions]
     
-    style C fill:#ffcdd2
-    style F fill:#c8e6c9
+    style C fill:#ffcdd2,color:#000
+    style F fill:#c8e6c9,color:#000
 ```
 
 **Why BGE-M3?**
@@ -362,10 +431,10 @@ graph TB
     BGE --> C3
     BGE --> C4
     
-    style C1 fill:#e8f5e9
-    style C2 fill:#e3f2fd
-    style C3 fill:#fff9c4
-    style C4 fill:#f3e5f5
+    style C1 fill:#e8f5e9,color:#000
+    style C2 fill:#e3f2fd,color:#000
+    style C3 fill:#fff9c4,color:#000
+    style C4 fill:#f3e5f5,color:#000
 ```
 
 **Features:**
@@ -383,8 +452,8 @@ graph LR
     C --> D[Sort by Relevance Score]
     D --> E[Top 5 Results]
     
-    style C fill:#fff9c4
-    style E fill:#c8e6c9
+    style C fill:#fff9c4,color:#000
+    style E fill:#c8e6c9,color:#000
 ```
 
 **Model:** cross-encoder/ms-marco-MiniLM-L-6-v2
@@ -415,8 +484,8 @@ graph TB
     E --> F[Assemble Top Blocks]
     F --> G[Smart Snippet<br/>500 tokens<br/>99.2% reduction]
     
-    style A fill:#ffcdd2
-    style G fill:#c8e6c9
+    style A fill:#ffcdd2,color:#000
+    style G fill:#c8e6c9,color:#000
 ```
 
 **Algorithm:**
@@ -482,9 +551,9 @@ graph TB
         Render --> Visual[Visual Diagram in UI]
     end
     
-    style S fill:#fff9c4
-    style M fill:#c8e6c9
-    style Visual fill:#e1f5ff
+    style S fill:#fff9c4,color:#000
+    style M fill:#c8e6c9,color:#000
+    style Visual fill:#e1f5ff,color:#000
 ```
 
 **Example:**
@@ -592,9 +661,9 @@ graph TB
         T3 --> T4[With Descriptions]
     end
     
-    style D3 fill:#e8f5e9
-    style C3 fill:#e3f2fd
-    style T3 fill:#fff9c4
+    style D3 fill:#e8f5e9,color:#000
+    style C3 fill:#e3f2fd,color:#000
+    style T3 fill:#fff9c4,color:#000
 ```
 
 **Documentation Chunking:**
@@ -639,9 +708,9 @@ graph TB
     
     Format --> Display[Display Results]
     
-    style AI fill:#f3e5f5
-    style Guide fill:#c8e6c9
-    style Display fill:#e1f5ff
+    style AI fill:#f3e5f5,color:#000
+    style Guide fill:#c8e6c9,color:#000
+    style Display fill:#e1f5ff,color:#000
 ```
 
 **Features:**
