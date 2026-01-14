@@ -1,4 +1,4 @@
-# Multi-Domain Enterprise RAG System with Advanced Authentication
+# 🚀 Multi-Domain Enterprise RAG System with Advanced Authentication
 
 <div align="center">
 
@@ -297,6 +297,7 @@ sequenceDiagram
     L-->>R: Natural language response
     R->>F: {llm_response, results, sources}
     F-->>U: Display formatted answer
+```
 
 ---
 
