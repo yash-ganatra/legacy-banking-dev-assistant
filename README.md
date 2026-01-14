@@ -1375,18 +1375,9 @@ project-root/
 
 ---
 
-##  Documentation
-
-- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Detailed architecture documentation
-- **[API_REFERENCE.md](docs/API_REFERENCE.md)** - Complete API documentation
-- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Production deployment guide
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
-
----
-
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is under strict commercial rights. All rights reserved. Unauthorized copying, distribution, or use of this software is strictly prohibited.
 
 ---
 
