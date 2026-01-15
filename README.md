@@ -30,19 +30,19 @@
 
 ---
 
-##  Project Overview
+## Project Overview
 
-This project implements a sophisticated **Retrieval-Augmented Generation (RAG)** system designed for enterprise knowledge management. The system enables intelligent query responses across multiple knowledge domains using state-of-the-art embedding models, vector databases, and large language models.
+This project is a production-oriented **Retrieval-Augmented Generation (RAG)** platform for querying and understanding a **banking legacy application** across multiple knowledge domains (code, templates/views, and business documentation). It focuses on building a high-precision retrieval pipeline—**domain-aware chunking, rich metadata, hybrid retrieval, cross-encoder re-ranking, and token-efficient context building**—so the LLM answers are grounded in the most relevant sources.
 
 ### What Makes This Project Special?
 
- **Multi-Domain Knowledge Retrieval** - Unified interface for querying different types of content  
- **Enterprise-Grade Security** - JWT authentication with bcrypt password hashing  
- **Role-Based Access Control** - Admin, Team Lead, and Team Member roles  
- **Advanced Retrieval Techniques** - Hybrid semantic search with cross-encoder re-ranking  
- **Token Efficiency** - Smart snippet extraction achieving 97%+ token reduction  
- **Persistent Chat History** - PostgreSQL-backed conversation management  
- **Production-Ready Architecture** - Scalable, maintainable, and well-documented  
+ **Multi-Domain Retrieval + Smart Routing** - One interface to query docs, backend/frontend code, and templates/views with context-aware routing  
+ **Domain-Specific Chunking Strategies** - Different chunking logic for documentation, code units (functions/classes), and large templates (forms/scripts/styles)  
+ **Metadata-Enriched Knowledge Base** - Hierarchical paths, tags, file/section context, and structured descriptors to improve precision and filtering  
+ **High-Precision Retrieval Pipeline** - BGE-M3 embeddings + ChromaDB semantic search + metadata filters for focused candidate selection  
+ **Cross-Encoder Re-Ranking** - Re-scores candidates to reduce false positives and improve top-k relevance for downstream generation  
+ **Token-Efficient Context Building** - Smart snippet extraction (97%+ reduction) to fit LLM context windows without losing key evidence  
+ **Production-Ready Product Features** - Persistent chat history, multi-user support, and secure API access (JWT/RBAC) for real-world usage  
 
 ---
 
