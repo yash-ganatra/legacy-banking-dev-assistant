@@ -1,4 +1,4 @@
-#  Multi-Domain Enterprise RAG System with Advanced Authentication
+# Banking Legacy Application Developer Assistant -  — Secure Enterprise RAG Platform (Multi‑Domain Retrieval)
 
 <div align="center">
 
@@ -15,7 +15,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Project Overview](#-project-overview)
 2. [Key Features](#-key-features)
@@ -30,23 +30,23 @@
 
 ---
 
-## 🎯 Project Overview
+##  Project Overview
 
 This project implements a sophisticated **Retrieval-Augmented Generation (RAG)** system designed for enterprise knowledge management. The system enables intelligent query responses across multiple knowledge domains using state-of-the-art embedding models, vector databases, and large language models.
 
 ### What Makes This Project Special?
 
-✅ **Multi-Domain Knowledge Retrieval** - Unified interface for querying different types of content  
-✅ **Enterprise-Grade Security** - JWT authentication with bcrypt password hashing  
-✅ **Role-Based Access Control** - Admin, Team Lead, and Team Member roles  
-✅ **Advanced Retrieval Techniques** - Hybrid semantic search with cross-encoder re-ranking  
-✅ **Token Efficiency** - Smart snippet extraction achieving 97%+ token reduction  
-✅ **Persistent Chat History** - PostgreSQL-backed conversation management  
-✅ **Production-Ready Architecture** - Scalable, maintainable, and well-documented  
+ **Multi-Domain Knowledge Retrieval** - Unified interface for querying different types of content  
+ **Enterprise-Grade Security** - JWT authentication with bcrypt password hashing  
+ **Role-Based Access Control** - Admin, Team Lead, and Team Member roles  
+ **Advanced Retrieval Techniques** - Hybrid semantic search with cross-encoder re-ranking  
+ **Token Efficiency** - Smart snippet extraction achieving 97%+ token reduction  
+ **Persistent Chat History** - PostgreSQL-backed conversation management  
+ **Production-Ready Architecture** - Scalable, maintainable, and well-documented  
 
 ---
 
-## �️ System Architecture
+## System Architecture
 
 ### High-Level Architecture Overview
 
@@ -148,9 +148,9 @@ graph TB
 
 ---
 
-## �🌟 Key Features
+##  Key Features
 
-### 🔐 Authentication & Security
+### Authentication & Security
 
 ```mermaid
 graph LR
@@ -171,7 +171,7 @@ graph LR
 - **User data isolation** - each user sees only their own data
 - **Role-based permissions** ready for enterprise scaling
 
-### 💬 Intelligent Chat System
+### Intelligent Chat System
 
 - **Multi-conversation support** with automatic title generation
 - **Context-aware routing** to appropriate knowledge bases
@@ -179,7 +179,7 @@ graph LR
 - **Conversation history** with timestamp and metadata tracking
 - **Smart conversation preview** showing date, context, and message count
 
-### 🎯 Advanced Retrieval Pipeline
+###  Advanced Retrieval Pipeline
 
 ```mermaid
 graph TB
@@ -213,7 +213,7 @@ graph TB
 - **Hybrid metadata filtering** for focused retrieval
 - **Smart snippet extraction** reducing context size by 97%+
 
-### 🛠️ AI-Powered Code Review
+###  AI-Powered Code Review
 
 - Real-time code analysis with syntax error detection
 - Guideline-based review following industry best practices
@@ -223,7 +223,7 @@ graph TB
 
 ---
 
-## 🔄 Detailed Process Flows
+##  Detailed Process Flows
 
 ### Authentication Flow
 
@@ -301,7 +301,7 @@ sequenceDiagram
 
 ---
 
-## 🔧 Technical Stack
+##  Technical Stack
 
 ### Backend Technologies
 
@@ -382,7 +382,7 @@ CREATE TABLE messages (
 
 ---
 
-## 🧩 Core Components
+##  Core Components
 
 ### 1. Embedding Model (BGE-M3)
 
@@ -524,7 +524,7 @@ def extract_smart_snippet(content, query, max_chars=2000):
 
 ---
 
-## 🎯 Advanced Features
+##  Advanced Features
 
 ### 1. Diagram Preservation & Rendering
 
@@ -589,10 +589,10 @@ Action 2 → End
 ```
 
 **Benefits:**
-- ✅ Diagrams are searchable via text descriptions
-- ✅ Original code preserved for rendering
-- ✅ Visual presentation maintained in UI
-- ✅ No information loss
+-  Diagrams are searchable via text descriptions
+-  Original code preserved for rendering
+-  Visual presentation maintained in UI
+-  No information loss
 
 ### 2. Hierarchical Metadata Filtering
 
@@ -831,7 +831,7 @@ Savings: 97.2% reduction, 35x cheaper
 
 ---
 
-## 🚀 Setup Guide
+##  Setup Guide
 
 ### Prerequisites
 
@@ -1208,9 +1208,9 @@ Response 200:
 
 ---
 
-## 🎯 Achievements
+##  Achievements
 
-### 🏗️ Architecture & Design
+###  Architecture & Design
 
 ✅ **Scalable Multi-Domain RAG System**
 - Unified interface for multiple knowledge domains
@@ -1268,7 +1268,7 @@ Response 200:
 - Connection pooling
 - Automatic cleanup
 
-### 🎨 Advanced Features
+###  Advanced Features
 
 ✅ **Intelligent Retrieval**
 - Hybrid semantic + keyword search
@@ -1294,7 +1294,7 @@ Response 200:
 - Context-aware message tracking
 - Full CRUD operations
 
-### 📊 Metrics & Quality
+### Metrics & Quality
 
 ✅ **High Retrieval Accuracy**
 - 94% top-5 precision
@@ -1316,7 +1316,7 @@ Response 200:
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 project-root/
@@ -1375,7 +1375,7 @@ project-root/
 
 ---
 
-## 📄 License
+## License
 
 This project is under strict commercial rights. All rights reserved. Unauthorized copying, distribution, or use of this software is strictly prohibited.
 
