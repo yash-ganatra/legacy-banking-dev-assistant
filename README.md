@@ -1,4 +1,4 @@
-# Banking Legacy Application Developer Assistant -  — Secure Enterprise RAG Platform (Multi‑Domain Retrieval)
+# Banking Legacy Application Developer Assistant - Secure Enterprise RAG Platform (Multi‑Domain Retrieval)
 
 <div align="center">
 
