@@ -742,7 +742,7 @@ graph TB
 
 ---
 
-## 📊 Performance Metrics
+##  Performance Metrics
 
 ### Retrieval Accuracy
 
@@ -1229,7 +1229,7 @@ Response 200:
 - Real-time updates
 - Markdown and diagram rendering
 
-### 🔐 Security & Authentication
+### Security & Authentication
 
 ✅ **Enterprise-Grade Authentication**
 - JWT with HS256 algorithm
@@ -1248,7 +1248,7 @@ Response 200:
 - Secure token storage
 - SQL injection prevention
 
-### 🚀 Performance Optimization
+### Performance Optimization
 
 ✅ **Token Efficiency**
 - 97%+ token reduction with smart snippets
